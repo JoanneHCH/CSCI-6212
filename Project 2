@@ -1,3 +1,9 @@
+import random
+
+def circular_shift(arr, shift_amount):
+    n = len(arr)
+    return arr[-shift_amount:] + arr[:-shift_amount]
+
 def findMax(arr, low, high, sum):
     sum[0] += 1  
     
@@ -17,8 +23,12 @@ def findMax(arr, low, high, sum):
     else:
         return findMax(arr, low, mid - 1, sum)
 
-A = list(range(1, 101))  
+Arr = list(range(1, 101))  
 sum = [0]  
 
-print(findMax(A, 0, len(A)-1, sum))  
+shift_amount = random.randint(1, len(Arr) - 1)
+shifted_arr = circular_shift(Arr, shift_amount)
+
+print("Shifted Array:", shifted_arr)
+print("Maximum Element:", findMax(shifted_arr, 0, len(shifted_arr)-1, sum))  
 print("Recursive calls:", sum[0])
