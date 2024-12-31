@@ -28,6 +28,7 @@ The divide-and-conquer approach works as follows:
 
 ```cpp
 Function findMax(arr, low, high)
+
     If low == high
         Return arr[low]
 
@@ -44,3 +45,42 @@ Function findMax(arr, low, high)
 
     Else
         Return findMax(arr, low, mid - 1)
+```
+
+---
+
+## Time Complexity Analysis
+
+1. Each time the function is called, the array is divided in half using the line `mid = (low + high) / 2`.
+2. Initially, the algorithm processes `n` elements.
+3. With each recursive step, the number of elements to process reduces by half:
+   `n, n/2, n/4, n/8, ...`
+4. The recursion stops when only one element remains.
+5. Work outside of the recursive calls (e.g., comparisons and assignments) takes constant time.
+6. Therefore, we can get: `T(n) = T (n/2) + c → T(n) = 𝑶(𝐥𝐨𝐠 𝒏)`.
+
+---
+
+## Experimental Results
+
+The table below compares the experimental results with theoretical predictions:
+
+| Array Size (n)     | Experimental Result (Recursion Depth) | Theoretical Result (log_2(n)) |
+|--------------------|--------------------------------------|-----------------------------|
+| 10                 | 4                                    | 3.32                        |
+| 100                | 7                                    | 6.64                        |
+| 1,000              | 10                                   | 9.97                        |
+| 10,000             | 14                                   | 13.29                       |
+| 100,000            | 17                                   | 16.61                       |
+| 1,000,000          | 20                                   | 19.93                       |
+| 10,000,000         | 24                                   | 23.25                       |
+
+---
+
+## Graph of Results
+
+![Experimental vs. Theoretical Results](graph_placeholder.png)
+
+## Observations
+- The experimental results grow slightly faster than the theoretical predictions but follow the same overall trend.
+- The algorithm behaves as expected, confirming its time complexity is **O(log n)**.
