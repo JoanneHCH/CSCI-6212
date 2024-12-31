@@ -79,7 +79,7 @@ The table below compares the experimental results with theoretical predictions:
 
 ## Graph of Results
 
-![Experimental vs. Theoretical Results](graph_placeholder.png)
+![Experimental vs. Theoretical Results](Graph_of_Results.png)
 
 ## Observations
 - The experimental results grow slightly faster than the theoretical predictions but follow the same overall trend.
